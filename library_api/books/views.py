@@ -6,6 +6,10 @@ from .serializers import BookSerializer, CategorySerializer
 from .permissions import IsAdminOrReadOnly
 
 class BookFilter(df.FilterSet):
+    available = df.BooleanFilter(field_name='available')
+    published_year = df.NumberFilter(field_name='published_year')
+    category = df.ModelChoiceFilter(queryset=Category.objects.all())
+
     class Meta:
         model = Book
         fields = ['available', 'published_year', 'category']
