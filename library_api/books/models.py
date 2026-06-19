@@ -11,7 +11,7 @@ class Book(models.Model):
     author = models.CharField(max_length=100)
     published_year = models.IntegerField()
     available = models.BooleanField(default=True)
-    Category = models.ForeignKey(
+    category = models.ForeignKey(
         Category,
         on_delete=models.SET_NULL,
         null=True,
@@ -21,8 +21,3 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
-
-
-
-
-
